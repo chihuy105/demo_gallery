@@ -11,10 +11,85 @@ dependencies:
   bloc: ^8.1.0
   flutter:
     sdk: flutter
-  flutter_bloc: ^8.1.1
   flutter_localizations:
     sdk: flutter
   intl: ^0.17.0
+
+  get: ^4.6.5
+  get_it: ^7.2.0
+  flutter_bloc: ^8.1.1
+
+  ## Network
+  retrofit: ^3.0.1
+  logger: ^1.0.0  #for logging purpose
+  dio: ^4.0.4
+  pretty_dio_logger: ^1.2.0-beta-1
+  synchronized: ^3.0.0
+  retry: ^3.1.0
+
+  ## Data format & Json format
+  json_serializable: ^6.3.2
+  equatable: ^2.0.3
+  json_annotation: ^4.6.0
+  easy_mask: ^2.0.1
+
+  #####  View
+  velocity_x: ^3.3.0
+  photo_view: ^0.13.0
+  infinite_scroll_pagination: ^3.1.0
+  overlay_support: ^2.0.0
+  custom_refresh_indicator: ^1.1.1
+
+  ## Loading process
+  pull_to_refresh: 2.0.0
+  shimmer: ^2.0.0
+
+  ## Navigation
+  auto_route: ^5.0.1
+
+  #####  Data
+  hive: ^2.0.2
+  hive_flutter: ^1.1.0
+  cached_network_image: ^3.2.0
+  flutter_multi_formatter: ^2.6.2
+
+  #####  Resource & Config
+  flutter_keyboard_visibility: ^5.1.0
+  image_picker: ^0.8.5+3
+  flutter_svg: ^2.0.0+1
+
+  #####  Firebase
+  firebase_core: ^2.0.0
+  firebase_messaging: ^14.0.4
+  firebase_auth: ^4.0.1
+  google_sign_in: ^5.4.2
+  flutter_facebook_auth: ^4.4.1+1
+  firebase_crashlytics: ^3.0.1
+  crypto: ^3.0.2
+  sign_in_with_apple: ^4.1.0
+  firebase_dynamic_links: ^5.0.4
+
+  #  firebase_analytics: ^8.3.4
+  #  firebase_remote_config: ^0.11.0+2
+
+  ##### Google Service
+  google_place: ^0.4.7
+  google_maps_flutter: ^2.1.4
+  map_launcher: ^2.4.0
+  geolocator: ^8.2.0
+  geocoding: ^2.0.4
+
+  #####  Environment
+  #  flutter_flavor: ^3.1.1
+
+  #####  CLI
+  mason_cli: ^0.1.0-dev.30
+
+  #package internal import
+  logger_and_error:
+    path: ./packages/logger_and_error
+  app_ui:
+    path: ./packages/app_ui
 
 dev_dependencies:
   bloc_test: ^9.1.0
@@ -22,7 +97,22 @@ dev_dependencies:
     sdk: flutter
   mocktail: ^0.3.0
   very_good_analysis: ^3.1.0
+  build_runner: ^2.3.3
+  retrofit_generator: ^4.0.1
+  flutter_gen_runner: ^5.1.0+1
+  flutter_lints: ^2.0.1
+  auto_route_generator: ^5.0.3
+  test: ^1.19.5
+  pub_version_plus: ^1.0.2
+
+flutter_gen:
+  integrations:
+    flutter_svg: true
+    flare_flutter: false
+    null_safety: true
 
 flutter:
   uses-material-design: true
   generate: true
+  assets:
+    - assets/icons/
