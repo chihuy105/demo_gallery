@@ -1,0 +1,17 @@
+bricks:
+  feature_brick:
+    path: ./bricks/feature_brick
+  feature_core_brick:
+    path: ./bricks/feature_core_brick
+  app_ui: ^0.0.4
+
+####!! Note
+# Run "mason upgrade" when add new bricks
+
+# Feature Brick
+# Create:
+# mason make feature_brick  --feature_name  --folder_name main --state_management cubit
+
+# Feature Core Brick
+# Create:
+# mason make feature_core_brick  --feature_name gallery --state_management cubit

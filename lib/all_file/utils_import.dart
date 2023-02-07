@@ -1,10 +1,9 @@
-// Extend
+export 'package:demo_gallery/core/dio/dio_extend.dart';
+export 'package:demo_gallery/core/utils/dialog_utils.dart';
 export 'package:demo_gallery/core/utils/extend/collection_extend.dart';
 export 'package:demo_gallery/core/utils/extend/data_extend.dart';
 export 'package:demo_gallery/core/utils/extend/navigation_extend.dart';
 export 'package:demo_gallery/core/utils/extend/view_extend.dart';
 export 'package:demo_gallery/core/utils/image_utils.dart';
-// Utils
 export 'package:demo_gallery/core/utils/toast_utils.dart';
-export 'package:demo_gallery/core/dio/dio_extend.dart';
 export 'package:logger_and_error/logger/logger_custom.dart';

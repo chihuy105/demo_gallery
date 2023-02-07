@@ -1,4 +1,5 @@
 import 'package:demo_gallery/all_file/all_file.dart';
+import 'package:demo_gallery/app/features/gallery/core/gallery_dependency.dart';
 import 'package:demo_gallery/core/dio/dio_module.dart';
 import 'package:demo_gallery/firebase_options.dart';
 import 'package:demo_gallery/firebase_options_dev.dart';
@@ -73,4 +74,6 @@ Future<void> _appDataProvider() async {
   getIt
     ..registerSingleton<UserSecureStorage>(userSecureStorage)
     ..registerSingleton<AppConfigService>(AppConfigService());
+
+  injectGalleryModule();
 }

@@ -8,7 +8,7 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
       routes: const [
-        HomeRoute(),
+        GalleryRoute(),
         HomeRoute(),
       ],
       bottomNavigationBuilder: (_, tabsRouter) {
@@ -41,12 +41,12 @@ class _HomeBottomBar extends StatelessWidget {
         _buildBottomBarItem(
           context: context,
           icon: Icons.home_filled,
-          label: 'home'.tr,
+          label: 'Home',
         ),
         _buildBottomBarItem(
           context: context,
           icon: Icons.favorite,
-          label: 'news'.tr,
+          label: 'Bookmark',
         ),
       ],
     );
