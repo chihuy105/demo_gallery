@@ -9,13 +9,11 @@ class Img extends StatelessWidget {
     this.canZoom = false,
     this.progressIndicatorBuilder,
     this.errorUrlWidget,
-    this.canPlayVideo = false,
   }) : super(key: key);
 
   final dynamic? src;
   final BoxFit fit;
   final bool canZoom;
-  final bool canPlayVideo;
   final ProgressIndicatorBuilder? progressIndicatorBuilder;
   final Widget Function(BuildContext context, Object object, dynamic error)?
       errorUrlWidget;
@@ -41,8 +39,8 @@ class Img extends StatelessWidget {
     }
     Widget? imageWidget;
 
-    if (srcStr!.startsWith('http')) {
-      var url = srcStr.startsWith('http://')
+    if (srcStr.startsWith('http')) {
+      final url = srcStr.startsWith('http://')
           ? srcStr.replaceFirst('http://', 'https://')
           : srcStr;
 

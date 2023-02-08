@@ -121,7 +121,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }
 
   Future<void> removeUserInfo() async {
-    getIt<DioModule>().removeToken();
+    // getIt<DioModule>().removeToken();
     await _userSecureStorage.clear();
   }
 

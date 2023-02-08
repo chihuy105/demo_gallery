@@ -15,7 +15,6 @@ export 'package:demo_gallery/all_file/widget_import.dart';
 export 'package:demo_gallery/all_file/controllers_import.dart';
 
 // Model & Repo & API
-export 'package:demo_gallery/all_file/repos_import.dart';
 export 'package:demo_gallery/all_file/models_import.dart';
 
 // Resource

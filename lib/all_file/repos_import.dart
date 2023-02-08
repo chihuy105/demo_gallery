@@ -1,1 +1,0 @@
-export 'package:demo_gallery/app/features/common/data/common_data.dart';

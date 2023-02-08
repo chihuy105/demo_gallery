@@ -39,7 +39,7 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
       leading: args?.leading ?? bthBack,
       bottom: args?.bottom,
       backgroundColor:
-          args?.backgroundColor ?? context.theme.colorScheme.background,
+          args?.backgroundColor ?? context.theme.appBarTheme.backgroundColor,
       actions: args?.actions ?? <Widget>[],
       flexibleSpace: args?.flexibleSpace,
     );
@@ -66,7 +66,7 @@ class BaseAppBarTitleText extends StatelessWidget {
         .minFontSize(Dimens.text_mid_S)
         .maxLines(args?.maxLine ?? 1)
         .align(args?.textAlign ?? TextAlign.start)
-        .color(args?.color)
+        .color(args?.color ?? context.theme.colorScheme.onPrimary)
         .ellipsis
         .make()
         .marginOnly(right: 8);

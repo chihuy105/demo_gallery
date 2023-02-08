@@ -9,6 +9,8 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 /// It will also contain the base url and all other Dio option
 ///
 
+enum ItemDetailStatus { initial, loading, success, error }
+
 class DioModule {
   DioModule();
 
@@ -40,12 +42,13 @@ class DioModule {
       ));
     }
 
+    dio.options.headers["Authorization"] = F.photoAPIKey;
     // Check token
-    final storage = getIt<UserSecureStorage>();
-    if (storage.user != null) {
-      dio.options.headers["Authorization"] = F.photoAPIKey;
-      // addToken(storage.user!.token);
-    }
+    // final storage = getIt<UserSecureStorage>();
+    // if (storage.user != null) {
+    //   dio.options.headers["Authorization"] = F.photoAPIKey;
+    //   addToken(storage.user!.token);
+    // }
 
     addTokenInterceptor();
 

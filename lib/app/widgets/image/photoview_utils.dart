@@ -2,10 +2,11 @@ import 'package:demo_gallery/all_file/all_file.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 
+// This Utils use to view one or multiple image full-screen, we can zoom in and out each image
 class PhotoviewUtils {
   PhotoviewUtils._();
 
-  static onZoomImage(BuildContext context, String? src) {
+  static void onZoomImage(BuildContext context, String? src) {
     if (src.isNullOrEmpty()) {
       logger.e('Image empty');
       return;
@@ -31,8 +32,11 @@ class PhotoviewUtils {
     );
   }
 
-  static onZoomLibrary(BuildContext context, List<String> srcList,
-      {int? initialPage}) {
+  static void onZoomLibrary(
+    BuildContext context,
+    List<String> srcList, {
+    int? initialPage,
+  }) {
     final minScale = PhotoViewComputedScale.contained * 0.8;
 
     Navigator.of(context).push(
@@ -48,8 +52,7 @@ class PhotoviewUtils {
                   imageProvider: getImageProvider(srcList.getOrNull(index)),
                   initialScale: minScale,
                   minScale: minScale,
-                  heroAttributes:
-                      PhotoViewHeroAttributes(tag: srcList.getOrNull(index)!),
+                  heroAttributes: PhotoViewHeroAttributes(tag: srcList.getOrNull(index)!),
                 );
               },
               itemCount: srcList.length,
@@ -66,18 +69,13 @@ class PhotoviewUtils {
     );
   }
 
-  static onZoomLibraryPage(BuildContext context, List<String> srcList,
-      {int? initialPage}) {}
-
   static ImageProvider getImageProvider(String? src) {
-    if (src?.startsWith('http') == true) {
-      var url = src!.startsWith('http://')
-          ? src.replaceFirst('http://', 'https://')
-          : src;
+    if (src?.startsWith('http') ?? false) {
+      var url = src!.startsWith('http://') ? src.replaceFirst('http://', 'https://') : src;
 
       return NetworkImage(url);
     }
-    if (src?.contains('assets/') == true) {
+    if (src?.contains('assets/') ?? false) {
       return AssetImage(src!);
     }
     if ((src?.length ?? 0) > 1 && src?.substring(0, 1) == '/') {
