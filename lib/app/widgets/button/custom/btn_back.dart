@@ -2,6 +2,17 @@ import 'package:demo_gallery/all_file/all_file.dart';
 import 'package:flutter/cupertino.dart';
 
 class BtnBack extends StatelessWidget {
+
+  const BtnBack({
+    super.key,
+    this.onPress,
+    this.size = 25,
+    this.iconColor,
+    this.backgroundColor,
+    this.checkCanPop = true,
+    this.isCupertino = true,
+  });
+
   final VoidCallback? onPress;
   final double size;
   final Color? iconColor;
@@ -9,18 +20,7 @@ class BtnBack extends StatelessWidget {
   final bool? checkCanPop;
   final bool isCupertino;
 
-  static bool isShowBtnBack(BuildContext context) =>
-      (ModalRoute.of(context)?.canPop ?? false) == true;
-
-  const BtnBack(
-      {Key? key,
-      this.onPress,
-      this.size = 25,
-      this.iconColor,
-      this.backgroundColor,
-      this.checkCanPop = true,
-      this.isCupertino = true})
-      : super(key: key);
+  static bool isShowBtnBack(BuildContext context) => (ModalRoute.of(context)?.canPop ?? false) == true;
 
   static BtnBack transparent(BuildContext context) {
     return BtnBack(
@@ -30,10 +30,8 @@ class BtnBack extends StatelessWidget {
   }
 
   static BtnBack forHeader(BuildContext context, bool isTransparent) {
-    final iconColor =
-        isTransparent ? Colors.white : Theme.of(context).primaryColor;
-    final iconBackground =
-        isTransparent ? Colors.grey[600]!.withOpacity(0.3) : Colors.transparent;
+    final iconColor = isTransparent ? Colors.white : Theme.of(context).primaryColor;
+    final iconBackground = isTransparent ? Colors.grey[600]!.withOpacity(0.3) : Colors.transparent;
 
     return BtnBack(
       iconColor: iconColor,
@@ -43,7 +41,7 @@ class BtnBack extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (checkCanPop == true) {
+    if (checkCanPop ?? false) {
       if (!isShowBtnBack(context)) {
         return Gaps.empty;
       }
@@ -55,8 +53,9 @@ class BtnBack extends StatelessWidget {
         padding: Dimens.edge_S,
         onPressed: onPress ?? () => context.router.pop(),
         child: Icon(
-          CupertinoIcons.back,
+          Icons.arrow_back_ios_new_rounded,
           size: size,
+          color: context.theme.colorScheme.onPrimary,
         ),
       );
     }
@@ -66,7 +65,7 @@ class BtnBack extends StatelessWidget {
 
     return BtnCircleIcon(
       Icon(
-        CupertinoIcons.back,
+        Icons.arrow_back_ios_new_rounded,
         size: size,
         color: iconColorUse,
       ),

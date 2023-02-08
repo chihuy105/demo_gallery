@@ -57,6 +57,7 @@ dependencies:
   flutter_keyboard_visibility: ^5.1.0
   image_picker: ^0.8.5+3
   flutter_svg: ^2.0.0+1
+  font_awesome_flutter: ^10.3.0
 
   #####  Firebase
   firebase_core: ^2.0.0

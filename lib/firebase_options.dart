@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -49,24 +46,31 @@ class DefaultFirebaseOptions {
     }
   }
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyDmey3SGg1JtmZY9DFmDUjkTjvlpOpz5VU',
+    appId: '1:1017308028178:web:65244bef4e7c0cac3aa7cb',
+    messagingSenderId: '1017308028178',
+    projectId: 'fir-gallery-2da4d',
+    authDomain: 'fir-gallery-2da4d.firebaseapp.com',
+    storageBucket: 'fir-gallery-2da4d.appspot.com',
+    measurementId: 'G-SKXCG7EGWJ',
+  );
+
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDEh0Vl71rWQuh5erxUcvRFkizJZxmmumA',
-    appId: '1:499593620652:android:4309edc495519020ccc309',
-    messagingSenderId: '499593620652',
-    projectId: 'birealflutter',
-    storageBucket: 'birealflutter.appspot.com',
+    apiKey: 'AIzaSyABaj5-GRjdUdevWpWPOq2rrwmmw_HU6iU',
+    appId: '1:1017308028178:android:c417a13fac1afa043aa7cb',
+    messagingSenderId: '1017308028178',
+    projectId: 'fir-gallery-2da4d',
+    storageBucket: 'fir-gallery-2da4d.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBK-kRjAV3FL1nR7qxX3M841cKSSOtN4gw',
-    appId: '1:499593620652:ios:49322e1a1800f75cccc309',
-    messagingSenderId: '499593620652',
-    projectId: 'birealflutter',
-    storageBucket: 'birealflutter.appspot.com',
-    androidClientId:
-        '499593620652-634m5giidospb9u552p6uq9hmpd97v4u.apps.googleusercontent.com',
-    iosClientId:
-        '499593620652-hic9kh6013at677jmu4r3sht9tcj50hs.apps.googleusercontent.com',
-    iosBundleId: 'vn.sntg.Bireal',
+    apiKey: 'AIzaSyBz5EX1cca00yH_DKYr2BV2ZyWp7CU-vQM',
+    appId: '1:1017308028178:ios:0ee900103cc8b3c73aa7cb',
+    messagingSenderId: '1017308028178',
+    projectId: 'fir-gallery-2da4d',
+    storageBucket: 'fir-gallery-2da4d.appspot.com',
+    iosClientId: '1017308028178-9rccpks5f92svci8oq0og58ld6pjmr59.apps.googleusercontent.com',
+    iosBundleId: 'com.example.verygoodcore.gallery',
   );
 }

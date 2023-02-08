@@ -1,9 +1,10 @@
 import 'package:demo_gallery/all_file/all_file.dart';
+import 'package:demo_gallery/app/features/auth/presentation/login_page/login_page.dart';
 import 'package:demo_gallery/app/features/gallery/presentation/gallery_page/gallery_page.dart';
 
-const galleryRoutes = [
+const authRoutes = [
     AutoRoute(
-      path: 'gallery',
-      page: GalleryPage,
+      path: 'login',
+      page: LoginPage,
     )
 ];

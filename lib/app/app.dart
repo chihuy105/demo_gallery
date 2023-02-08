@@ -6,8 +6,8 @@
 // https://opensource.org/licenses/MIT.
 
 import 'package:demo_gallery/all_file/all_file.dart';
-import 'package:demo_gallery/app/features/auth/view/bloc/auth_bloc.dart';
-import 'package:demo_gallery/app/features/auth/view/widget/auth_listener.dart';
+import 'package:demo_gallery/app/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:demo_gallery/app/features/auth/presentation/widget/auth_listener.dart';
 import 'package:demo_gallery/app/widgets/app/dismiss_keyboard.dart';
 import 'package:demo_gallery/l10n/l10n.dart';
 import 'package:flutter/services.dart';
@@ -36,11 +36,6 @@ class App extends StatelessWidget {
             GlobalCupertinoLocalizations.delegate,
           ],
           supportedLocales: AppLocalizations.supportedLocales,
-          // localizationsDelegates: const [
-          //   AppLocalizations.delegate,
-          //   GlobalMaterialLocalizations.delegate,
-          // ],
-          // supportedLocales: AppLocalizations.supportedLocales,
           title: F.title,
           builder: (context, child) {
             return _flavorBanner(

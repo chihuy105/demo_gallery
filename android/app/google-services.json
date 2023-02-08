@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "1017308028178",
+    "project_id": "fir-gallery-2da4d",
+    "storage_bucket": "fir-gallery-2da4d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1017308028178:android:c417a13fac1afa043aa7cb",
+        "android_client_info": {
+          "package_name": "com.example.verygoodcore.gallery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1017308028178-qa3add0s6jdata7j3cg2qkfsbtrjeb8g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.verygoodcore.gallery",
+            "certificate_hash": "1f3aa5362a0e14f53488fe2d94fce3155856896f"
+          }
+        },
+        {
+          "client_id": "1017308028178-t4uia907d04pjug4viad9bg9a9h3sstc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.verygoodcore.gallery",
+            "certificate_hash": "3afebfb244416bd5ea8ec1b20ab8b09911c0d613"
+          }
+        },
+        {
+          "client_id": "1017308028178-6bfifcn3gbmqua3src7oamkjhhvap9dd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABaj5-GRjdUdevWpWPOq2rrwmmw_HU6iU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1017308028178-6bfifcn3gbmqua3src7oamkjhhvap9dd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1017308028178-9rccpks5f92svci8oq0og58ld6pjmr59.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.verygoodcore.gallery"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

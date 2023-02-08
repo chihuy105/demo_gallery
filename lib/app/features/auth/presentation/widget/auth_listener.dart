@@ -1,6 +1,6 @@
 import 'package:demo_gallery/all_file/all_file.dart';
+import 'package:demo_gallery/app/features/auth/presentation/bloc/auth_bloc.dart';
 
-import 'package:demo_gallery/app/features/auth/view/bloc/auth_bloc.dart';
 import 'package:demo_gallery/services/user_secure_storage_service.dart';
 
 class AuthListener extends StatelessWidget {

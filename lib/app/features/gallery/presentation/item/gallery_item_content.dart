@@ -21,9 +21,12 @@ class GalleryItemContent extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 item.photographer?.text.maxLines(2).ellipsis.make().expand() ?? Gaps.empty,
-                const AppCupertinoBtn(
+                AppCupertinoBtn(
                   padding: Dimens.edge_XS3,
-                  child: Icon(Icons.favorite),
+                  child: const Icon(Icons.favorite),
+                  onPressed: () {
+                    context.read<GalleryItemCubit>().likeItem(context);
+                  },
                 )
               ],
             ).minHeight(40),

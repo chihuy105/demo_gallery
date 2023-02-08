@@ -8,28 +8,26 @@ class AuthFirstLoadUserEvent extends AuthEvent {
 }
 
 class AuthFetchUserEvent extends AuthEvent {
-  final bool fetchLoveList;
-
   AuthFetchUserEvent({this.fetchLoveList = false});
+
+  final bool fetchLoveList;
 }
 
 class AuthenticatedEvent extends AuthEvent {
-  final String token;
-  final String? avatar;
-  final bool firstTime;
-  final bool isRefresh;
-
   AuthenticatedEvent({
     this.isRefresh = false,
-    required this.token,
-    this.avatar,
     this.firstTime = false,
+    required this.user,
   });
+
+  final bool firstTime;
+  final bool isRefresh;
+  final UserModel user;
 }
 
 class UnAuthenticatedEvent extends AuthEvent {
+  UnAuthenticatedEvent({this.showToast = false, this.openSignInPage = false});
+
   final bool openSignInPage;
   final bool showToast;
-
-  UnAuthenticatedEvent({this.showToast = false, this.openSignInPage = false});
 }

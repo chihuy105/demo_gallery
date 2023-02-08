@@ -1,4 +1,5 @@
 import 'package:demo_gallery/all_file/all_file.dart';
+import 'package:demo_gallery/app/features/auth/core/auth_dependency.dart';
 import 'package:demo_gallery/app/features/gallery/core/gallery_dependency.dart';
 import 'package:demo_gallery/core/dio/dio_module.dart';
 import 'package:demo_gallery/firebase_options.dart';
@@ -76,4 +77,5 @@ Future<void> _appDataProvider() async {
     ..registerSingleton<AppConfigService>(AppConfigService());
 
   injectGalleryModule();
+  injectAuthModule();
 }

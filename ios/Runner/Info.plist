@@ -7,6 +7,21 @@
 		<string>en</string>
 		<string>es</string>
 	</array>
+	<key>CFBundleURLTypes</key>
+  		<array>
+  			<dict>
+  				<key>CFBundleTypeRole</key>
+  				<string>Editor</string>
+  				<key>CFBundleURLName</key>
+  				<string>$(BASE_URL)</string>
+  				<key>CFBundleURLSchemes</key>
+  				<array>
+  					<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+  					<string>$(URL_SCHEME)</string>
+  					<string>com.googleusercontent.apps.1017308028178-9rccpks5f92svci8oq0og58ld6pjmr59</string>
+  				</array>
+  			</dict>
+  		</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>

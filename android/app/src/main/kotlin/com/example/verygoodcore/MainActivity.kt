@@ -1,4 +1,4 @@
-package com.example.verygoodcore.demo_gallery
+package com.example.verygoodcore.gallery
 
 import io.flutter.embedding.android.FlutterActivity
 
