@@ -1,8 +1,8 @@
-part of 'home_cubit.dart';
+part of 'bookmark_viewer_cubit.dart';
 
-class HomeState extends Equatable {
+class BookmarkViewerState extends Equatable {
 
-  const HomeState({
+  const BookmarkViewerState({
     this.status = ItemDetailStatus.initial,
     required this.item,
     this.errorMsg,
@@ -15,12 +15,12 @@ class HomeState extends Equatable {
   @override
   List<Object?> get props => [status, item, errorMsg];
   
-  HomeState copyWith({
+  BookmarkViewerState copyWith({
       ItemDetailStatus? status,
       dynamic? item,
       String? errorMsg,
   }) {
-    return HomeState(
+    return BookmarkViewerState(
       status: status ?? this.status,
       item: item ?? this.item,
       errorMsg: errorMsg ?? this.errorMsg,

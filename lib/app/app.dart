@@ -10,6 +10,7 @@ import 'package:demo_gallery/app/features/auth/presentation/bloc/auth_bloc.dart'
 import 'package:demo_gallery/app/features/auth/presentation/widget/auth_listener.dart';
 import 'package:demo_gallery/app/features/gallery/presentation/bookmark/bloc/user_book_mark_list_bloc.dart';
 import 'package:demo_gallery/app/features/gallery/presentation/bookmark/widget/book_mark_listener.dart';
+import 'package:demo_gallery/app/widgets/app/app_config_switch/bloc/app_config_cubit.dart';
 import 'package:demo_gallery/app/widgets/app/dismiss_keyboard.dart';
 import 'package:demo_gallery/l10n/l10n.dart';
 import 'package:flutter/services.dart';
@@ -23,55 +24,70 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AnnotatedRegion(
-      value: SystemUiOverlayStyle.dark.copyWith(
-        systemNavigationBarColor: Theme.of(context).canvasColor,
-        systemNavigationBarIconBrightness: Brightness.dark,
-        statusBarColor: Colors.transparent,
-        statusBarIconBrightness: Brightness.dark,
-      ),
-      child: OverlaySupport.global(
-        child: MaterialApp.router(
-          localizationsDelegates: const [
-            AppLocalizations.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-          supportedLocales: AppLocalizations.supportedLocales,
-          title: F.title,
-          builder: (context, child) {
-            return _flavorBanner(
-              child: DismissKeyboard(
-                child: MultiBlocProvider(
-                  providers: [
-                    BlocProvider<AuthBloc>(
-                      create: (context) => AuthBloc()..add(AuthFirstLoadUserEvent()),
+    return BlocProvider(
+      create: (context) => AppConfigCubit(),
+      child: Builder(
+        builder: (context) {
+          return AnnotatedRegion(
+            value: SystemUiOverlayStyle.dark.copyWith(
+              systemNavigationBarColor: Theme.of(context).canvasColor,
+              systemNavigationBarIconBrightness: Brightness.dark,
+              statusBarColor: Colors.transparent,
+              statusBarIconBrightness: Brightness.dark,
+            ),
+            child: OverlaySupport.global(
+              child: BlocBuilder<AppConfigCubit, AppConfigState>(
+                builder: (context, state) {
+                  return MaterialApp.router(
+                    localizationsDelegates: const [
+                      AppLocalizations.delegate,
+                      GlobalMaterialLocalizations.delegate,
+                      GlobalCupertinoLocalizations.delegate,
+                    ],
+                    supportedLocales: const <Locale>[
+                      Locale('en'),
+                      Locale('vi'),
+                    ],
+                    locale: Locale(context.read<AppConfigCubit>().state.locale),
+                    title: F.title,
+                    builder: (context, child) {
+                      return _flavorBanner(
+                        child: DismissKeyboard(
+                          child: MultiBlocProvider(
+                            providers: [
+                              BlocProvider<AuthBloc>(
+                                create: (context) => AuthBloc()..add(AuthFirstLoadUserEvent()),
+                              ),
+                              BlocProvider<UserBookMarkListBloc>(
+                                create: (context) => UserBookMarkListBloc(),
+                              ),
+                            ],
+                            child: BookMarkListener(
+                              child: _AppWidget(
+                                appRouter: appRouter,
+                                child: child ?? Gaps.empty,
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                    themeMode: state.isDark ? ThemeMode.dark : ThemeMode.light,
+                    theme: AppTheme.getTheme(),
+                    darkTheme: AppTheme.getTheme(isDark: true),
+                    debugShowCheckedModeBanner: false,
+                    routerDelegate: appRouter.delegate(
+                      initialRoutes: [
+                        const MainRoute(),
+                      ],
                     ),
-                    BlocProvider<UserBookMarkListBloc>(
-                      create: (context) => UserBookMarkListBloc(),
-                    ),
-                  ],
-                  child: BookMarkListener(
-                    child: _AppWidget(
-                      appRouter: appRouter,
-                      child: child ?? Gaps.empty,
-                    ),
-                  ),
-                ),
+                    routeInformationParser: appRouter.defaultRouteParser(),
+                  );
+                },
               ),
-            );
-          },
-          themeMode: ThemeMode.light,
-          theme: AppTheme.getTheme(),
-          darkTheme: AppTheme.getTheme(isDark: true),
-          debugShowCheckedModeBanner: false,
-          routerDelegate: appRouter.delegate(
-            initialRoutes: [
-              const MainRoute(),
-            ],
-          ),
-          routeInformationParser: appRouter.defaultRouteParser(),
-        ),
+            ),
+          );
+        },
       ),
     );
   }
@@ -130,5 +146,4 @@ class _AppWidgetState extends State<_AppWidget> {
       ),
     );
   }
-
 }

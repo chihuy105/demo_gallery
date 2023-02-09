@@ -10,7 +10,7 @@ bricks:
 
 # Feature Brick
 # Create:
-# mason make feature_brick  --feature_name login --folder_name login_page --state_management cubit
+# mason make feature_brick  --feature_name bookmark_viewer --folder_name bookmark_viewer --state_management cubit
 
 # Feature Core Brick
 # Create:

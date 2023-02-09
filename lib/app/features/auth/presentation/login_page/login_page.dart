@@ -1,8 +1,7 @@
 import 'package:demo_gallery/all_file/all_file.dart';
 import 'package:demo_gallery/app/features/auth/presentation/bloc/auth_bloc.dart';
-import 'package:demo_gallery/app/features/auth/presentation/login_page/login_body.dart';
 import 'package:demo_gallery/app/features/auth/presentation/login_page/cubit/login_cubit.dart';
-import 'package:velocity_x/velocity_x.dart';
+import 'package:demo_gallery/app/features/auth/presentation/login_page/login_body.dart';
 
 class LoginPage extends StatelessWidget {
 
@@ -18,16 +17,16 @@ class LoginPage extends StatelessWidget {
             builder: (context) {
               return BlocListener<LoginCubit, LoginState>(
                 listener: _onStateChanged,
-                child: const Scaffold(
+                child: Scaffold(
                   appBar: BaseAppBar(
-                    title: 'Login Page',
+                    title: context.l10n.login,
                   ),
-                  body: _PageBodyLoading(
+                  body: const _PageBodyLoading(
                     child: LoginBody(),
                   ),
                 ),
               );
-            }
+            },
         ),
       ),
     );

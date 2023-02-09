@@ -157,8 +157,8 @@ class _PagingGridState<V> extends State<PagingGrid<V>> {
       pagingController: _pagingController,
       builderDelegate: PagedChildBuilderDelegate<V>(
         itemBuilder: widget.itemBuilder,
-        firstPageProgressIndicatorBuilder: widget.firstPageProgressIndicatorBuilder ?? (_) => AppLoading.defaultLoading(),
-        newPageProgressIndicatorBuilder: widget.newPageProgressIndicatorBuilder ?? (_) => AppLoading.defaultLoading(),
+        firstPageProgressIndicatorBuilder: widget.firstPageProgressIndicatorBuilder ?? (_) => AppLoading.defaultLoadingBox(),
+        newPageProgressIndicatorBuilder: widget.newPageProgressIndicatorBuilder ?? (_) => AppLoading.defaultLoadingBox(),
         firstPageErrorIndicatorBuilder: (_) =>
             PageErrorNotify(
               error: _pagingController.error,
@@ -189,10 +189,11 @@ class _PagingGridState<V> extends State<PagingGrid<V>> {
       shrinkWrap: widget.shrinkWrap,
       padding: widget.padding,
       pagingController: _pagingController,
+      showNewPageProgressIndicatorAsGridChild: false,
       builderDelegate: PagedChildBuilderDelegate<V>(
         itemBuilder: widget.itemBuilder,
-        firstPageProgressIndicatorBuilder: widget.firstPageProgressIndicatorBuilder ?? (_) => AppLoading.defaultLoading(),
-        newPageProgressIndicatorBuilder: widget.newPageProgressIndicatorBuilder ?? (_) => AppLoading.defaultLoading(),
+        firstPageProgressIndicatorBuilder: widget.firstPageProgressIndicatorBuilder ?? (_) => AppLoading.defaultLoadingBox(),
+        newPageProgressIndicatorBuilder: widget.newPageProgressIndicatorBuilder ?? (_) => AppLoading.defaultLoadingBox(),
         firstPageErrorIndicatorBuilder: (_) =>
             PageErrorNotify(
               error: _pagingController.error,

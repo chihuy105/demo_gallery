@@ -18,7 +18,11 @@ class UserBookMarkListBloc extends Bloc<UserBookMarkListEvent, UserBookMarkListS
 
   late final BookmarkStorageService _bookmarkStorageService;
 
-  bool isItemSelected({required int? photoId}){
+  List<PhotoModel> getListBookmark() {
+    return state.listPhoto ?? [];
+  }
+
+  bool isItemSelected({required int? photoId}) {
     return state.listPhoto.find((item) => item.id == photoId) != null;
   }
 
@@ -98,6 +102,18 @@ class UserBookMarkListBloc extends Bloc<UserBookMarkListEvent, UserBookMarkListS
     }
   }
 
-  FutureOr<void> _onUserBookMarkListClearEvent(UserBookMarkListClearEvent event, Emitter<UserBookMarkListState> emit) {}
+  FutureOr<void> _onUserBookMarkListClearEvent(UserBookMarkListClearEvent event, Emitter<UserBookMarkListState> emit) {
+    if (event.removeUser) {
+      emit(
+        state.clear(),
+      );
+    }else{
+      emit(
+        state.copyWith(
+          listPhoto: [],
+        ),
+      );
+    }
 
+  }
 }

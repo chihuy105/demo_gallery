@@ -1,14 +1,14 @@
 import 'package:demo_gallery/all_file/all_file.dart';
 
-part 'home_state.dart';
+part 'bookmark_viewer_state.dart';
 
-class HomeCubit extends Cubit<HomeState> {
-  HomeCubit({dynamic? item}) : super(HomeState(item: item));
+class BookmarkViewerCubit extends Cubit<BookmarkViewerState> {
+  BookmarkViewerCubit({dynamic? item}) : super(BookmarkViewerState(item: item));
 
   FutureOr<void> fetchItem() async {
     emit(state.copyWith(status: ItemDetailStatus.loading));
     try {
-      // final item = await getIt<ApproveRepo>().getProgramForApprove(programID: item.programID ?? '');
+      // final item = await Get.find<ApproveRepo>().getProgramForApprove(programID: item.programID ?? '');
       emit(
         state.copyWith(
           status: ItemDetailStatus.success,

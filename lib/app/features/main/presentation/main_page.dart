@@ -1,4 +1,5 @@
 import 'package:demo_gallery/all_file/all_file.dart';
+import 'package:demo_gallery/l10n/l10n.dart';
 import 'package:flutter/cupertino.dart';
 
 class MainPage extends StatelessWidget {
@@ -9,7 +10,7 @@ class MainPage extends StatelessWidget {
     return AutoTabsScaffold(
       routes: const [
         GalleryRoute(),
-        HomeRoute(),
+        BookmarkViewerRoute(),
       ],
       bottomNavigationBuilder: (_, tabsRouter) {
         return _HomeBottomBar(
@@ -41,12 +42,12 @@ class _HomeBottomBar extends StatelessWidget {
         _buildBottomBarItem(
           context: context,
           icon: Icons.home_filled,
-          label: 'Home',
+          label: context.l10n.galleryPage,
         ),
         _buildBottomBarItem(
           context: context,
           icon: Icons.favorite,
-          label: 'Bookmark',
+          label: context.l10n.bookMark,
         ),
       ],
     );

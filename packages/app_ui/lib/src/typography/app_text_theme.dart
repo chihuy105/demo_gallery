@@ -18,13 +18,14 @@ class AppTextThemeExtension extends ThemeExtension<AppTextThemeExtension> {
     required this.textHeadline,
   });
 
-  static TextStyle defaultText = TextStyle(
-    color: AppColorExtension.light.text,
+  static TextStyle defaultText = const TextStyle(
     fontSize: Dimens.text,
   );
 
   static AppTextThemeExtension dark = AppTextThemeExtension(
-    text: defaultText,
+    text: defaultText.copyWith(
+      color: AppColorExtension.dark.text,
+    ),
     textHint: defaultText.copyWith(
       color: Colors.grey,
     ),
@@ -36,7 +37,9 @@ class AppTextThemeExtension extends ThemeExtension<AppTextThemeExtension> {
   );
 
   static final AppTextThemeExtension light = AppTextThemeExtension(
-    text: defaultText,
+    text: defaultText.copyWith(
+      color: AppColorExtension.light.text,
+    ),
     textHint: defaultText.copyWith(
       color: Colors.grey,
     ),

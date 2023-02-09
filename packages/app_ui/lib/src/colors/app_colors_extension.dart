@@ -41,7 +41,7 @@ class AppColorExtension extends ThemeExtension<AppColorExtension> {
   final Color actionColor;
   final Color actionColorInactive;
 
-  static const AppColorExtension dark = AppColorExtension(
+  static const AppColorExtension light = AppColorExtension(
     text: Color(0xff000000),
     textLink: Color(0xFF1890ff),
     divider: Color(0xFF70787d),
@@ -57,11 +57,11 @@ class AppColorExtension extends ThemeExtension<AppColorExtension> {
     actionColorInactive: Color(0xFF70787d),
   );
 
-  static const AppColorExtension light = AppColorExtension(
-    text: Color(0xff000000),
+  static const AppColorExtension dark = AppColorExtension(
+    text: Color(0xffffffff),
     textLink: Color(0xFF1890ff),
     divider: Color(0xFF70787d),
-    lightPrimary: Color(0xffb3daff),
+    lightPrimary: Color(0xff1a1a1a),
     rating: Color(0xFFFD8205),
     sharedLink: Color(0xFF4A9B60),
     successColor: Color(0xFF4A9B60),
@@ -155,28 +155,28 @@ const ColorScheme _colorScheme = ColorScheme(
 );
 
 const ColorScheme _colorSchemeDark = ColorScheme(
-  brightness: Brightness.light,
+  brightness: Brightness.dark,
   primary: Color(0xFF1A92FF),
-  onPrimary: Color(0xFFffffff),
-  primaryContainer: Color(0xFFb7eaff),
-  onPrimaryContainer: Color(0xFF001f2a),
-  secondary: Color(0xFF4c616b),
-  onSecondary: Color(0xFFffffff),
-  secondaryContainer: Color(0xFFcfe6f1),
-  onSecondaryContainer: Color(0xFF071e26),
+  onPrimary: Color(0xFF000000),
+  primaryContainer: Color(0xFF1A92FF),
+  onPrimaryContainer: Color(0xFF000000),
+  secondary: Color(0xFF6F6F6F),
+  onSecondary: Color(0xFF000000),
+  secondaryContainer: Color(0xFF6F6F6F),
+  onSecondaryContainer: Color(0xFF000000),
   tertiary: Color(0xFF5b5b7e),
-  onTertiary: Color(0xFFffffff),
-  tertiaryContainer: Color(0xFFe1dfff),
-  onTertiaryContainer: Color(0xFF181837),
+  onTertiary: Color(0xFF000000),
+  tertiaryContainer: Color(0xFF5b5b7e),
+  onTertiaryContainer: Color(0xFF000000),
   error: Color(0xFFCB2222),
-  onError: Color(0xFFffffff),
-  errorContainer: Color(0xFFffdad4),
-  onErrorContainer: Color(0xFF410001),
-  background: Color(0xFFffffff),
-  onBackground: Color(0xFF191c1e),
-  surface: Color(0xffffffff),
-  onSurface: Color(0xFF191c1e),
+  onError: Color(0xFF000000),
+  errorContainer: Color(0xFFCB2222),
+  onErrorContainer: Color(0xFF000000),
+  background: Color(0xFF191c1e),
+  onBackground: Color(0xFF000000),
+  surface: Color(0xFF191c1e),
+  onSurface: Color(0xFF000000),
   outline: Color(0xFF70787d),
-  surfaceVariant: Color(0xFFdce4e8),
-  onSurfaceVariant: Color(0xFF40484c),
+  surfaceVariant: Color(0xFF70787d),
+  onSurfaceVariant: Color(0xFF000000),
 );

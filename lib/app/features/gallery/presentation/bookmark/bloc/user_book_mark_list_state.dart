@@ -20,6 +20,10 @@ class UserBookMarkListState extends Equatable {
   final List<PhotoModel>? listPhoto;
   final String? errorMsg;
 
+  UserBookMarkListState clear() {
+    return const UserBookMarkListState();
+  }
+
   @override
   List<Object?> get props => [status, userId, listPhoto, errorMsg];
 

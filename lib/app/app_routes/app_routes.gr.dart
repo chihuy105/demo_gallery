@@ -15,8 +15,9 @@ import 'package:auto_route/auto_route.dart' as _i5;
 import 'package:flutter/material.dart' as _i6;
 
 import '../features/auth/presentation/login_page/login_page.dart' as _i2;
-import '../features/gallery/presentation/gallery_page/gallery_page.dart' as _i4;
-import '../features/home/presentation/home_page.dart' as _i3;
+import '../features/gallery/presentation/bookmark_viewer/bookmark_viewer_page.dart'
+    as _i4;
+import '../features/gallery/presentation/gallery_page/gallery_page.dart' as _i3;
 import '../features/main/presentation/main_page.dart' as _i1;
 
 class AppAutoRoute extends _i5.RootStackRouter {
@@ -37,16 +38,16 @@ class AppAutoRoute extends _i5.RootStackRouter {
         child: const _i2.LoginPage(),
       );
     },
-    HomeRoute.name: (routeData) {
-      return _i5.MaterialPageX<dynamic>(
-        routeData: routeData,
-        child: const _i3.HomePage(),
-      );
-    },
     GalleryRoute.name: (routeData) {
       return _i5.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i4.GalleryPage(),
+        child: const _i3.GalleryPage(),
+      );
+    },
+    BookmarkViewerRoute.name: (routeData) {
+      return _i5.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i4.BookmarkViewerPage(),
       );
     },
   };
@@ -58,13 +59,13 @@ class AppAutoRoute extends _i5.RootStackRouter {
           path: '/main',
           children: [
             _i5.RouteConfig(
-              HomeRoute.name,
-              path: 'Home',
+              GalleryRoute.name,
+              path: 'gallery',
               parent: MainRoute.name,
             ),
             _i5.RouteConfig(
-              GalleryRoute.name,
-              path: 'gallery',
+              BookmarkViewerRoute.name,
+              path: 'bookmark-viewer',
               parent: MainRoute.name,
             ),
           ],
@@ -102,19 +103,7 @@ class LoginRoute extends _i5.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i3.HomePage]
-class HomeRoute extends _i5.PageRouteInfo<void> {
-  const HomeRoute()
-      : super(
-          HomeRoute.name,
-          path: 'Home',
-        );
-
-  static const String name = 'HomeRoute';
-}
-
-/// generated route for
-/// [_i4.GalleryPage]
+/// [_i3.GalleryPage]
 class GalleryRoute extends _i5.PageRouteInfo<void> {
   const GalleryRoute()
       : super(
@@ -123,4 +112,16 @@ class GalleryRoute extends _i5.PageRouteInfo<void> {
         );
 
   static const String name = 'GalleryRoute';
+}
+
+/// generated route for
+/// [_i4.BookmarkViewerPage]
+class BookmarkViewerRoute extends _i5.PageRouteInfo<void> {
+  const BookmarkViewerRoute()
+      : super(
+          BookmarkViewerRoute.name,
+          path: 'bookmark-viewer',
+        );
+
+  static const String name = 'BookmarkViewerRoute';
 }

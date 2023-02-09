@@ -34,20 +34,9 @@ class AuthListener extends StatelessWidget {
   void _onAuthStateChange(BuildContext context, AuthState state) {
     if (state is AuthenticatedState) {
       if (!state.isRefresh) {
-        String msg;
-        if (state.firstTimeLoginEver) {
-          msg = 'welcomeNewUser'.tr.replaceFirst('<user_name>', 'contactName');
-        } else {
-          msg = 'welcomeUser'.tr.replaceFirst('<user_name>', 'contactName');
-        }
-        ToastUtils.showToast(context: context, msg: msg, duration: const Duration(seconds: 3));
+        ToastUtils.showToast(context: context, msg: 'Welcome', duration: const Duration(seconds: 3));
       }
     } else if (state is UnAuthenticatedState) {
-      if (state.openSignInPage) {
-        // widget.appRouter.push(SignInRoute());
-        return;
-      }
-
       if (state.showToast) {
         ToastUtils.showToast(
           context: context,

@@ -5,6 +5,7 @@ import 'package:demo_gallery/core/dio/dio_module.dart';
 import 'package:demo_gallery/firebase_options.dart';
 import 'package:demo_gallery/firebase_options_dev.dart';
 import 'package:demo_gallery/firebase_options_stag.dart';
+import 'package:demo_gallery/l10n/l10n.dart';
 import 'package:demo_gallery/services/user_secure_storage_service.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
@@ -15,6 +16,7 @@ import 'package:logger_and_error/logger/logger_custom.dart';
 import 'app/app_routes/app_routes.gr.dart';
 
 final getIt = GetIt.instance;
+
 
 Future<void> setupAppDependencies() async {
   logger.i('SERVICE starting ...');

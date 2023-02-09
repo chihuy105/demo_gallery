@@ -23,5 +23,7 @@ class UserBookMarkListRemoveEvent extends UserBookMarkListEvent{
 }
 
 class UserBookMarkListClearEvent extends UserBookMarkListEvent{
-  UserBookMarkListClearEvent();
+  UserBookMarkListClearEvent({required this.removeUser});
+
+  final bool removeUser;
 }

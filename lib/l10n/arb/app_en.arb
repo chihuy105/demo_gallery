@@ -1,7 +1,9 @@
 {
-    "@@locale": "en",
-    "counterAppBarTitle": "Counter",
-    "@counterAppBarTitle": {
-        "description": "Text shown in the AppBar of the Counter Page"
-    }
+  "@@locale": "en",
+  "bookMark": "Bookmark",
+  "galleryPage": "Gallery",
+  "login": "Login",
+  "loginGG": "Login with Google",
+  "loginRequiredMsg": "Login to use this feature",
+  "logout": "Logout"
 }

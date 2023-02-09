@@ -27,7 +27,9 @@ class BookMarkListener extends StatelessWidget {
           );
     } else if (state is UnAuthenticatedState) {
       context.read<UserBookMarkListBloc>().add(
-            UserBookMarkListClearEvent(),
+            UserBookMarkListClearEvent(
+              removeUser: true,
+            ),
           );
     }
   }

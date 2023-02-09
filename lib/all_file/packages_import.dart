@@ -7,6 +7,7 @@ export 'package:auto_route/auto_route.dart';
 export 'package:bloc/bloc.dart' hide EventHandler;
 export 'package:cached_network_image/cached_network_image.dart';
 export 'package:demo_gallery/core/dio/dio_module.dart';
+export 'package:demo_gallery/l10n/l10n.dart';
 //// *** Third Party Packages ***
 export 'package:dio/dio.dart' hide Headers, MultipartFile;
 export 'package:equatable/equatable.dart';

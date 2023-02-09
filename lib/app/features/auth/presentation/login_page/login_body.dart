@@ -14,7 +14,7 @@ class LoginBody extends StatelessWidget {
       children: [
         Btn(
           leading: const FaIcon(FontAwesomeIcons.google),
-          child: 'Login with Google'.text.make(),
+          label: context.l10n.loginGG,
           onPressed: () {
             context.read<LoginCubit>().loginGG();
           },

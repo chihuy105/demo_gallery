@@ -1,0 +1,9 @@
+{
+  "@@locale": "vi",
+  "bookMark": "Dấu trang",
+  "galleryPage": "Thư viện",
+  "login": "Đăng nhập",
+  "loginGG": "Đăng nhập bằng Google",
+  "loginRequiredMsg": "Đăng nhập để sử dụng tính năng này",
+  "logout": "Đăng xuất"
+}
