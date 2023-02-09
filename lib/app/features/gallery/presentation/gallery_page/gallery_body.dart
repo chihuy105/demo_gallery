@@ -22,6 +22,7 @@ class GalleryBody extends StatelessWidget {
       itemBuilder: (context, item, index) {
         return GalleryItem(
           item: item,
+          listName: 'Gallery',
         );
       },
     );

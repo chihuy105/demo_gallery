@@ -10,8 +10,8 @@ bricks:
 
 # Feature Brick
 # Create:
-# mason make feature_brick  --feature_name bookmark_viewer --folder_name bookmark_viewer --state_management cubit
+# mason make feature_brick  --feature_name viewer --folder_name viewer --state_management cubit
 
 # Feature Core Brick
 # Create:
-# mason make feature_core_brick  --feature_name gallery --state_management cubit
+# mason make feature_core_brick  --feature_name collection --state_management cubit

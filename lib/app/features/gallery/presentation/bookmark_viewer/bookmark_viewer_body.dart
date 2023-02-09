@@ -26,6 +26,7 @@ class BookmarkViewerBody extends StatelessWidget {
             return GalleryItem(
               key: ObjectKey(item),
               item: item,
+              listName: 'Bookmark',
             );
           },
         );

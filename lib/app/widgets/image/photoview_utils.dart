@@ -6,7 +6,7 @@ import 'package:photo_view/photo_view_gallery.dart';
 class PhotoviewUtils {
   PhotoviewUtils._();
 
-  static void onZoomImage(BuildContext context, String? src) {
+  static void onZoomImage(BuildContext context, String? src, {String? tag}) {
     if (src.isNullOrEmpty()) {
       logger.e('Image empty');
       return;
@@ -14,17 +14,17 @@ class PhotoviewUtils {
     Navigator.of(context).push(
       PageRouteBuilder(
         opaque: false,
-        pageBuilder: (_, __, ___) {
+        pageBuilder: (context, __, ___) {
           return GestureDetector(
             onTap: () => Navigator.of(context, rootNavigator: true).pop(),
             child: PhotoView(
-              imageProvider: getImageProvider(src),
+              imageProvider: CachedNetworkImageProvider(src ?? ''),
               backgroundDecoration: const BoxDecoration(color: Colors.black87),
               maxScale: 2.0,
-              // enableRotation: true,
+              enableRotation: true,
               minScale: PhotoViewComputedScale.contained * 0.8,
               initialScale: PhotoViewComputedScale.contained * 0.9,
-              heroAttributes: PhotoViewHeroAttributes(tag: src!),
+              heroAttributes: PhotoViewHeroAttributes(tag: tag ?? src ?? ''),
             ),
           );
         },
