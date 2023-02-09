@@ -55,14 +55,13 @@ class DioModule {
     return _dio!;
   }
 
-  // TODO Add token to Interceptor
   void addTokenInterceptor() {
     dio.interceptors.add(InterceptorsWrapper(onError: (error, handler) async {
       if (error.response?.statusCode == 401) {
         logger.i('interceptor 401');
 
-        final storage = getIt<UserSecureStorage>();
-        storage.notifyUnAuthorized();
+        final storage = getIt<UserStorage>();
+        // storage.notifyUnAuthorized();
       }
 
       return handler.next(error);

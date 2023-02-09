@@ -8,6 +8,8 @@
 import 'package:demo_gallery/all_file/all_file.dart';
 import 'package:demo_gallery/app/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:demo_gallery/app/features/auth/presentation/widget/auth_listener.dart';
+import 'package:demo_gallery/app/features/gallery/presentation/bookmark/bloc/user_book_mark_list_bloc.dart';
+import 'package:demo_gallery/app/features/gallery/presentation/bookmark/widget/book_mark_listener.dart';
 import 'package:demo_gallery/app/widgets/app/dismiss_keyboard.dart';
 import 'package:demo_gallery/l10n/l10n.dart';
 import 'package:flutter/services.dart';
@@ -45,10 +47,15 @@ class App extends StatelessWidget {
                     BlocProvider<AuthBloc>(
                       create: (context) => AuthBloc()..add(AuthFirstLoadUserEvent()),
                     ),
+                    BlocProvider<UserBookMarkListBloc>(
+                      create: (context) => UserBookMarkListBloc(),
+                    ),
                   ],
-                  child: _AppWidget(
-                    appRouter: appRouter,
-                    child: child ?? Gaps.empty,
+                  child: BookMarkListener(
+                    child: _AppWidget(
+                      appRouter: appRouter,
+                      child: child ?? Gaps.empty,
+                    ),
                   ),
                 ),
               ),

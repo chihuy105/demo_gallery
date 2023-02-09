@@ -14,22 +14,21 @@ class AppTopLayout extends _BaseAppTopLayout {
     bool showTopWidget = false,
     bool ignoreChild = true,
   }) : super(
-    key: key,
-    topWidget: topWidget,
-    bottomWidget: bottomWidget,
-    showTopWidget: showTopWidget,
-    ignoreChild: ignoreChild,
-  );
+          key: key,
+          topWidget: topWidget,
+          bottomWidget: bottomWidget,
+          showTopWidget: showTopWidget,
+          ignoreChild: ignoreChild,
+        );
 
   factory AppTopLayout.loadingOnTop({
     required Widget child,
     bool isLoading = false,
     bool ignoreChild = true,
-    AppTopLayoutLoadingType loadingType =
-        AppTopLayoutLoadingType.defaultLoading,
+    AppTopLayoutLoadingType loadingType = AppTopLayoutLoadingType.defaultLoading,
   }) {
     Widget loadingWidget = Container(
-      color: const Color.fromRGBO(68, 68, 68, 0.3),
+      color: const Color.fromRGBO(30, 30, 30, 0.30196078431372547),
       child: const Center(
         child: CupertinoActivityIndicator(radius: 16.0),
       ),
@@ -57,7 +56,7 @@ class _BaseAppTopLayout extends StatelessWidget {
     Key? key,
     required this.topWidget,
     required this.bottomWidget,
-    this.showTopWidget = false, 
+    this.showTopWidget = false,
     this.ignoreChild = true,
   }) : super(key: key);
 
@@ -71,7 +70,10 @@ class _BaseAppTopLayout extends StatelessWidget {
         ),
         if (showTopWidget)
           Positioned.fill(
-            child: topWidget,
+            child: Container(
+              color: Colors.black26,
+              child: topWidget,
+            ),
           ),
       ],
     );

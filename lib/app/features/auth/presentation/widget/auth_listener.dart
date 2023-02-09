@@ -11,7 +11,7 @@ class AuthListener extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamListener(
-      stream: getIt<UserSecureStorage>().unAuthorized.stream,
+      stream: getIt<UserStorage>().userLD.stream,
       onData: (unAuthorized) {
         // TODO(Logout-Event): Check Logout event when 401
         // if (unAuthorized == true && getIt<AppAutoRoute>().current.name != UserProfileRoute.name) {

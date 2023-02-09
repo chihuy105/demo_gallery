@@ -1,4 +1,5 @@
 import 'package:demo_gallery/all_file/all_file.dart';
+import 'package:demo_gallery/app/features/gallery/presentation/bookmark/bloc/user_book_mark_list_bloc.dart';
 import 'package:demo_gallery/app/features/gallery/presentation/item/cubit/gallery_item_cubit.dart';
 
 class GalleryItemContent extends StatelessWidget {
@@ -13,7 +14,7 @@ class GalleryItemContent extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Img(
-              item.src?.original,
+              item.src?.small,
               canZoom: true,
               fit: BoxFit.cover,
             ).cornerRadius(Dimens.rad).expand(),
@@ -21,11 +22,24 @@ class GalleryItemContent extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 item.photographer?.text.maxLines(2).ellipsis.make().expand() ?? Gaps.empty,
-                AppCupertinoBtn(
-                  padding: Dimens.edge_XS3,
-                  child: const Icon(Icons.favorite),
-                  onPressed: () {
-                    context.read<GalleryItemCubit>().likeItem(context);
+                BlocBuilder<UserBookMarkListBloc, UserBookMarkListState>(
+                  builder: (context, state) {
+                    final itemSelected = context.read<UserBookMarkListBloc>().isItemSelected(photoId: item.id);
+                    return AppCupertinoBtn(
+                      padding: Dimens.edge_XS3,
+                      child: Icon(itemSelected ? Icons.favorite : Icons.favorite_border),
+                      onPressed: () {
+                        if (itemSelected) {
+                          context.read<GalleryItemCubit>().removeBookmarkItem(
+                            context,
+                          );
+                        } else {
+                          context.read<GalleryItemCubit>().bookmarkItem(
+                            context,
+                          );
+                        }
+                      },
+                    );
                   },
                 )
               ],

@@ -53,7 +53,7 @@ class Img extends StatelessWidget {
         fit: fit,
         progressIndicatorBuilder: progressIndicatorBuilder ??
             (context, url, downloadProgress) => const AppSkeleton(),
-        memCacheHeight: 700,
+        memCacheHeight: 400,
         errorWidget: errorUrlWidget ?? (context, url, error) => errorWidget,
       );
 

@@ -13,7 +13,7 @@ mixin CheckLoginMixin {
     final isLogin = context.read<AuthBloc>().isLogin;
 
     if (isLogin) {
-      onLogin.call(context.read<AuthBloc>().state.data.userModel);
+      onLogin.call(context.read<AuthBloc>().state.data.user);
     } else {
       DialogUtils.showAlertDialog(
         context,
@@ -21,7 +21,7 @@ mixin CheckLoginMixin {
         positiveLabel: 'Login',
         positive: () {
           context.router.push(const LoginRoute()).then((value) {
-            final userModel = context.read<AuthBloc>().state.data.userModel;
+            final userModel = context.read<AuthBloc>().state.data.user;
             if (userModel != null) {
               onLogin.call(userModel);
             } else {

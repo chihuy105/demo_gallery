@@ -4,7 +4,6 @@ part 'user_api_data.g.dart';
 
 @JsonSerializable(ignoreUnannotated: false)
 class UserModel {
-  final String? token;
   final String? userId;
 
   factory UserModel.fromJson(Map<String, dynamic> json) =>
@@ -13,7 +12,6 @@ class UserModel {
   Map<String, dynamic> toJson() => _$UserModelToJson(this);
 
   const UserModel({
-    this.token,
     this.userId,
   });
 }

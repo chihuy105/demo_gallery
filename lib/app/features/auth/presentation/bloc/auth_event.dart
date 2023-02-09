@@ -7,12 +7,6 @@ class AuthFirstLoadUserEvent extends AuthEvent {
   AuthFirstLoadUserEvent();
 }
 
-class AuthFetchUserEvent extends AuthEvent {
-  AuthFetchUserEvent({this.fetchLoveList = false});
-
-  final bool fetchLoveList;
-}
-
 class AuthenticatedEvent extends AuthEvent {
   AuthenticatedEvent({
     this.isRefresh = false,

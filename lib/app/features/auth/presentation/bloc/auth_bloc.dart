@@ -9,16 +9,15 @@ part 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc({AuthRepo? authRepo}) : super(const AuthInitialState(AuthData())) {
-    _userSecureStorage = getIt<UserSecureStorage>();
+    _userSecureStorage = getIt<UserStorage>();
     _authRepo = authRepo ?? getIt<AuthRepo>();
 
     on<AuthFirstLoadUserEvent>(_onFirstLoadAuthEvent);
-    on<AuthFetchUserEvent>(_onAuthFetchUserEvent);
     on<AuthenticatedEvent>(_onAuthenticatedEvent);
     on<UnAuthenticatedEvent>(_onUnAuthenticatedEvent);
   }
 
-  late final UserSecureStorage _userSecureStorage;
+  late final UserStorage _userSecureStorage;
 
   late final AuthRepo _authRepo;
 
@@ -47,25 +46,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   Future<void> _onAuthenticatedEvent(AuthenticatedEvent event, Emitter<AuthState> emit) async {
     try {
-      // await setUserInfo(
-      //   token: event.token,
-      //   avatar: event.avatar,
-      // );
-      //
-      // var user = await _userRepo.getUserProfile();
-      // List<AdminPermissionTypes>? adminRole;
-      // if (user.isAdmin()) {
-      //   adminRole = await _userRepo.getAdminRole();
-      // }
-      // _userSecureStorage.setUserModel(user);
-      // _loveRepo.loadLoveListAll(
-      //   delayFetch: const Duration(seconds: 3),
-      // );
-      //
+      await _userSecureStorage.setUserModel(event.user);
       emit(
         AuthenticatedState(
           state.data.copyWith(
-            userModel: user,
+            user: event.user,
           ),
           firstTimeLoginEver: event.firstTime,
           isRefresh: event.isRefresh,
@@ -77,31 +62,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     }
   }
 
-  Future<void> _onAuthFetchUserEvent(AuthFetchUserEvent event, Emitter<AuthState> emit) async {
-    try {
-      // var user = await _userRepo.getUserProfile();
-      // _userSecureStorage.setUserModel(user);
-      // if (event.fetchLoveList) {
-      //   _loveRepo.loadLoveListAll(
-      //     delayFetch: const Duration(seconds: 3),
-      //   );
-      // }
-      //
-      // emit(AuthenticatedState(
-      //   state.data.copyWith(userModel: user),
-      //   isRefresh: true,
-      // ));
-    } catch (e) {
-      logger.e(e);
-      emit(AuthenticatedStateFail(state.data, err: e.getServerErrorMsg()));
-    }
-  }
-
   Future<FutureOr<void>> _onUnAuthenticatedEvent(UnAuthenticatedEvent event, Emitter<AuthState> emit) async {
     try {
-      if (_userSecureStorage.token.isNotNullOrEmpty()) {
+      if (_userSecureStorage.user != null) {
         try {
-          // await _authRepo.logout();
+          await _authRepo.logout();
         } catch (e) {
           logger.e(e);
         }
@@ -109,8 +74,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       await removeUserInfo();
 
       emit(UnAuthenticatedState(
-        state.data.updateUser(
-          userModel: null,
+        state.data.update(
+          user: null,
         ),
         openSignInPage: event.openSignInPage,
         showToast: event.showToast,
@@ -122,28 +87,14 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }
 
   Future<void> removeUserInfo() async {
-    // getIt<DioModule>().removeToken();
     await _userSecureStorage.clear();
   }
 
-  Future<void> setUserInfo({required String token, String? avatar}) async {
-    await _userSecureStorage.setToken(token);
-    _userSecureStorage.unAuthorized.value = false;
-    // SocketIOService.instance.setToken(token: token);
-    getIt<DioModule>().addToken(token);
+  bool get isLogin => state.data.user != null;
 
-    if (avatar.isNotNullOrEmpty()) {
-      // await _userRepo.updateUserAvatarStr(
-      //   avatarStr: avatar ?? '',
-      // );
-    }
-  }
+  String? get userID => state.data.user?.userId;
 
-  bool get isLogin => state.data.userModel != null;
-
-  String? get userID => state.data.userModel?.userId;
-
-  UserModel? get user => state.data.userModel;
+  UserModel? get user => state.data.user;
 
   bool isAdmin() {
     return true;

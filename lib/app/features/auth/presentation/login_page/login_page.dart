@@ -62,13 +62,9 @@ class _PageBodyLoading extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<LoginCubit, LoginState>(
       builder: (context, state) {
-        // if (state.status == ItemDetailStatus.error) {
-        //   return SimpleErrorText(errorMsg: state.errorMsg ?? '');
-        // }
-
         return AppTopLayout.loadingOnTop(
           loadingType: AppTopLayoutLoadingType.iosLoading,
-          isLoading: state.status == ItemDetailStatus.loading || state.status == ItemDetailStatus.initial,
+          isLoading: state.status == LoginStatus.loading,
           child: child,
         );
       },
