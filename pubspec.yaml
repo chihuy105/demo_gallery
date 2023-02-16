@@ -62,7 +62,7 @@ dependencies:
   #####  Firebase
   firebase_core: ^2.0.0
   firebase_messaging: ^14.0.4
-  firebase_auth: ^4.0.1
+  firebase_auth: ^4.2.7
   google_sign_in: ^5.4.2
   flutter_facebook_auth: ^4.4.1+1
   firebase_crashlytics: ^3.0.1
